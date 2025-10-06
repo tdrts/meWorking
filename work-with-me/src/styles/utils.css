@@ -1,0 +1,79 @@
+/* Text truncation */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Focus styles */
+.focus-ring {
+  outline: none;
+  transition: ring var(--transition-fast);
+}
+
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-primary);
+}
+
+/* Interactive states */
+.hover-opacity {
+  transition: opacity var(--transition-fast);
+}
+
+.hover-opacity:hover {
+  opacity: 0.8;
+}
+
+/* Spacing utilities */
+.stack > * + * {
+  margin-top: var(--wwm-gap-md);
+}
+
+.stack-sm > * + * {
+  margin-top: var(--wwm-gap-sm);
+}
+
+.stack-lg > * + * {
+  margin-top: var(--wwm-gap-lg);
+}
+
+/* Layout utilities */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-responsive {
+  display: grid;
+  gap: var(--wwm-gap-md);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+/* Visual styles */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--wwm-card-radius);
+  border: 1px solid var(--color-border);
+  padding: var(--wwm-gap-md);
+}
+
+.surface {
+  background: var(--color-surface);
+  border-radius: var(--wwm-card-radius);
+}
+
+/* Animation utilities */
+.fade-in {
+  animation: fadeIn var(--transition-default) ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

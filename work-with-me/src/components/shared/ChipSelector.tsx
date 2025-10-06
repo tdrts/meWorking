@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
@@ -53,26 +52,30 @@ export function ChipSelector({
       <div className="flex flex-wrap gap-2">
         {options.map((option) => {
           const isSelected = value.includes(option);
+          const isDisabled = !isSelected && metrics.maxReached;
+
           return (
-            <Button
+            <button
               key={option}
               type="button"
-              variant={isSelected ? "default" : "outline"}
-              className={cn(
-                "rounded-full px-4 py-2 text-sm transition",
-                isSelected
-                  ? "bg-primary text-white hover:bg-primary-hover"
-                  : "border-border/80 text-slate-700 hover:border-primary/50 hover:text-primary",
-              )}
               onClick={() => handleToggle(option)}
+              disabled={isDisabled}
+              className={cn(
+                "inline-flex h-[22px] items-center justify-center rounded-[10px] border px-2 py-[2px] text-xs font-medium transition-colors",
+                {
+                  "bg-[#0a66c2] text-white border-transparent": isSelected,
+                  "bg-white text-neutral-950 border-[rgba(0,0,0,0.1)] hover:bg-neutral-50": !isSelected && !isDisabled,
+                  "opacity-50 cursor-not-allowed": isDisabled,
+                }
+              )}
             >
               {option}
-            </Button>
+            </button>
           );
         })}
       </div>
       {(minSelections || maxSelections) && (
-        <p className="text-xs text-muted-foreground">
+        <p className="text-xs text-[#717182]">
           {minSelections
             ? `Select at least ${minSelections}`
             : null}
@@ -82,7 +85,7 @@ export function ChipSelector({
       )}
       {showCustomInput && onCustomChange && (
         <div className="space-y-2">
-          <span className="text-xs font-medium text-muted-foreground">
+          <span className="text-xs font-medium text-[#717182]">
             Add a custom value
           </span>
           <Input
