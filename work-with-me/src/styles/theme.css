@@ -1,0 +1,14 @@
+:root {
+  --wwm-container-width: 1120px;
+  --wwm-card-radius: 24px;
+  --wwm-gap-lg: 2.5rem;
+  --wwm-gap-md: 1.5rem;
+  --wwm-gap-sm: 0.75rem;
+}
+
+.wwm-container {
+  margin: 0 auto;
+  max-width: var(--wwm-container-width);
+  padding-left: clamp(1.25rem, 3vw, 2.75rem);
+  padding-right: clamp(1.25rem, 3vw, 2.75rem);
+}

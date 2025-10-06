@@ -1,0 +1,15 @@
+# Node & dependencies
+node_modules/
+.pnpm-store/
+.npm-cache/
+
+# Build outputs
+dist/
+*.log
+
+# Editor settings
+.idea/
+.vscode/
+
+# macOS artifacts
+.DS_Store
